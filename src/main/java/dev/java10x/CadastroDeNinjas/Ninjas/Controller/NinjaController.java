@@ -4,7 +4,7 @@ package dev.java10x.CadastroDeNinjas.Ninjas.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping
+@RequestMapping("ninjas")
 public class NinjaController {
 
     @GetMapping("/boasvindas")
@@ -19,13 +19,13 @@ public class NinjaController {
     }
 
     //Procurar Ninja por Id(Read)
-    @GetMapping("todosID")
+    @GetMapping("listarID")
     public String mostrarTodosOsNinjasporId(){
         return "Mostrar Ninja por ID";
     }
 
     //Mostrar todos os ninjas (Read)
-    @GetMapping("/todos")
+    @GetMapping("/listar")
     public String mostrarTodosOsNinjas(){
         return "Ninja Criado";
     }
