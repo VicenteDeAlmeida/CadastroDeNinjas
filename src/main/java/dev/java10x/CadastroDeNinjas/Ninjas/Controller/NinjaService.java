@@ -10,6 +10,8 @@ import java.util.Optional;
 public class NinjaService {
     @Autowired
     private NinjaRepository ninjaRepository;
+    @Autowired
+    private NinjaMapper ninjaMapper;
 
     //Listar todos os ninjas
     public List<NinjaModel> listarNinjas(){
@@ -23,8 +25,10 @@ public class NinjaService {
     }
 
     //Criar um novo ninja
-    public NinjaModel criarNovoNinja(NinjaModel ninjaModel){
-        return ninjaRepository.save(ninjaModel);
+    public NinjaDTO criarNovoNinja(NinjaDTO ninjaDto){
+        NinjaModel ninja = ninjaMapper.map(ninjaDto);
+        ninja = ninjaRepository.save(ninja);
+        return ninjaMapper.map(ninja);
     }
     //Deletar ninja por id (delete tem que ser void)
     public void deletarNinjaporId(Long id){
